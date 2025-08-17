@@ -1,12 +1,11 @@
 # Singapore MBTI Quiz 🇸🇬
 
-A fun, Singapore-flavoured MBTI-style quiz designed for ages **14–45** and optimised for going viral on **Instagram/TikTok/WhatsApp/Telegram**.
+A fun, Singapore-flavoured MBTI-style quiz!
 
 ## Features
 - **15 quick questions** with local humour (Singlish, hawker, MRT, NS/school references).
 - **Auto-scoring** to one of the **16 types** (E/I, S/N, T/F, J/P).
 - **Viral-friendly result card** with gradient theme + emoji — **downloadable as PNG** (via html2canvas).
-- **Share button** using the Web Share API (with clipboard fallback).
 - **Separate page** listing all 16 Singapore-style type nicknames & blurbs.
 - 100% static. Works on **GitHub Pages** or any static host.
 
