@@ -63,8 +63,7 @@ a{color:var(--accent2);text-decoration:none}
 .result-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
 .result-card{
   width:100%;max-width:650px;border-radius:22px;padding:10px;border:1px solid rgba(255,255,255,.12);
-  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));box-shadow:var(--shadow)
-}
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);}
 .rc-head {
     display: flex;
     justify-content: space-between;
