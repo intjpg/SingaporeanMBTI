@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Singapore MBTI Types</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:12px}
+    .chip{font-size:.8rem;color:var(--muted)}
+    .card h4{margin:.35rem 0}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>📚 All 16 Singapore‑Style MBTI Types</h1>
+      <p class="sub">Browse &amp; laugh. Then go back to the quiz.</p>
+      <p><a href="index.html">← Back to Quiz</a></p>
+    </header>
+    <main>
+      <div class="grid" id="types-grid"></div>
+    </main>
+    <footer class="footer">
+      <a href="index.html">Back to quiz</a>
+    </footer>
+  </div>
+  <script>
+    const TYPES = {"ENTJ": {"title": "The CEO Cai Fan Stall Boss", "emoji": "🍛", "blurb": "Efficient & decisive. You portion life like cai‑fan strategy — rice mountain, meat 2 veg, no nonsense. Garang but fair.", "tags": ["Leader", "Decisive", "Planner"]}, "ENTP": {"title": "The MRT Debate King", "emoji": "🚇", "blurb": "Every chat becomes a TED Talk. ERP, MRT, prata ranking — you can argue both sides until applause.", "tags": ["Witty", "Curious", "Unconventional"]}, "INTJ": {"title": "The Secret Mastermind", "emoji": "🤫", "blurb": "Quiet outside, master plan inside. Like URA for your life. Minimal words, maximum strategy.", "tags": ["Strategic", "Independent", "Calm"]}, "INTP": {"title": "The Blur Sotong Professor", "emoji": "🦑", "blurb": "Abstract thoughts 24/7. Sometimes forget EZ‑Link, but your ideas? Next‑level.", "tags": ["Analytical", "Inventive", "Chill"]}, "ENFJ": {"title": "The Wedding MC", "emoji": "🎤", "blurb": "Mic in hand, everyone feels included — even ah‑ma at table 10. Big heart, bigger energy.", "tags": ["Charismatic", "Supportive", "Organiser"]}, "ENFP": {"title": "The YOLO Friend", "emoji": "✈️", "blurb": "Last‑minute Batam? Bag packed already. Ideas everywhere; vibes immaculate.", "tags": ["Adventurous", "Inspiring", "Spontaneous"]}, "INFJ": {"title": "The Mystic Ah Beng", "emoji": "🔮", "blurb": "Soft voice, deep wisdom. Sixth sense for people; advice until goosebumps.", "tags": ["Insightful", "Empathetic", "Purposeful"]}, "INFP": {"title": "The Emo Poet", "emoji": "☔", "blurb": "Feelings in HD. A song at MRT can make you tear — but you believe in the good.", "tags": ["Idealistic", "Creative", "Kind"]}, "ESTJ": {"title": "The Army Sergeant", "emoji": "🫡", "blurb": "On time, on task. Chalet booked, BBQ lit, everybody accounted for. You deliver.", "tags": ["Efficient", "Dependable", "Direct"]}, "ESFJ": {"title": "The Kaypoh Neighbour", "emoji": "🏘️", "blurb": "Knows everyone’s business — to take care of them. Snacks ready, group chat alive.", "tags": ["Welcoming", "Organised", "People‑first"]}, "ISTJ": {"title": "The CPF Calculator", "emoji": "💰", "blurb": "Serious about stability. Plans neat, numbers neat — your future very steady bom‑bi‑bi.", "tags": ["Responsible", "Practical", "Loyal"]}, "ISFJ": {"title": "The Quiet Chope Queen", "emoji": "🪑", "blurb": "Not loud, but always there. Tissue packet hero, reliable to the core.", "tags": ["Caring", "Diligent", "Supportive"]}, "ESTP": {"title": "The Orchard Road Hustler", "emoji": "🕶️", "blurb": "Fast moves, fun stories. First to try new hotspots; life with you never boring.", "tags": ["Bold", "Hands‑on", "Energetic"]}, "ESFP": {"title": "The TikTok Star", "emoji": "💃", "blurb": "Natural entertainer. 10 drafts waiting to drop; make friends everywhere.", "tags": ["Playful", "Expressive", "Warm"]}, "ISTP": {"title": "The DIY Uncle", "emoji": "🔧", "blurb": "Why call handyman when you can fix it? Quiet until something breaks — then hero mode.", "tags": ["Resourceful", "Cool‑headed", "Maker"]}, "ISFP": {"title": "The Hipster Café Hopper", "emoji": "☕", "blurb": "Aesthetic is life. Finds cosy cafés & good vibes; moves at your own rhythm.", "tags": ["Artistic", "Gentle", "Authentic"]}};
+    const order = Object.keys(TYPES);
+    const grid = document.getElementById('types-grid');
+    order.forEach(k=>{
+      const t = TYPES[k];
+      const div = document.createElement('div');
+      div.className='card';
+      div.innerHTML = \`
+        <span class="chip">\${k}</span>
+        <h4>\${t.title} <span style="float:right">\${t.emoji}</span></h4>
+        <p style="opacity:.92">\${t.blurb}</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">\${t.tags.map(s=>'<span class="tag">#'+s+'</span>').join('')}</div>
+      \`;
+      grid.appendChild(div);
+    });
+  </script>
+</body>
+</html>

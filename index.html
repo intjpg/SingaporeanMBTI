@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Singapore MBTI Quiz 🇸🇬</title>
+  <meta name="description" content="A hilarious Singapore-flavoured MBTI quiz for ages 14–45. Find your 16-personality nickname and share your result card!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- html2canvas for client-side image download -->
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>🦁 Singapore MBTI Quiz <span class="flag">🇸🇬</span></h1>
+      <p class="sub">Find your personality — with kopi, chope tissue &amp; Singlish vibes. <span class="age">For ages 14–45</span></p>
+    </header>
+
+    <main>
+      <!-- Start Screen -->
+      <section id="screen-start" class="screen show">
+        <div class="card big">
+          <h2>Ready to find your type?</h2>
+          <p>15 fast questions. 4 choices each. Super relatable. Super shareable.</p>
+          <ul class="ticks">
+            <li>⚡ Quick &amp; fun</li>
+            <li>🎯 Accurate enough to spark debates</li>
+            <li>📱 Download a result card for IG / TikTok / WhatsApp</li>
+          </ul>
+          <button id="btn-start" class="btn primary">Start Quiz</button>
+          <a class="btn ghost" href="types.html">All Personality Types</a>
+        </div>
+      </section>
+
+      <!-- Quiz Screen -->
+      <section id="screen-quiz" class="screen">
+        <div class="progress-wrap">
+          <div id="progress-bar" class="progress"></div>
+          <div id="progress-text" class="progress-text">1 / 15</div>
+        </div>
+        <div id="question-card" class="card q-card">
+          <!-- populated by JS -->
+        </div>
+      </section>
+
+      <!-- Result Screen -->
+      <section id="screen-result" class="screen">
+        <div class="result-wrap">
+          <div id="result-card" class="result-card">
+            <!-- result card populated by JS (used for image download) -->
+          </div>
+          <div class="result-actions">
+            <button id="btn-download" class="btn primary">⬇️ Download Result</button>
+            <a class="btn ghost" href="types.html">📚 All Personality Types</a>
+            <button id="btn-again" class="btn">🔁 Take Again</button>
+          </div>
+          <div class="share-cta">
+            <button id="btn-share" class="btn outline">📣 Share</button>
+            <small>Tip: Post to IG Stories / TikTok, or drop into WhatsApp/Telegram.</small>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Made for Singaporeans who love kopi, memes &amp; good vibes. Not affiliated with Myers-Briggs®.</p>
+      <a href="types.html">See all 16 types</a>
+    </footer>
+  </div>
+</body>
+</html>
