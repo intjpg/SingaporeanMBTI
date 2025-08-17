@@ -27,7 +27,7 @@ const QUESTIONS = [
     ]
   },
   {
-    q: "Sec/Poly/Uni class project due tomorrow. You…",
+    q: "Sec/Poly/Uni/Work project due tomorrow. You…",
     a: [
       { text: "Chiong through the night, caffeine mode.", delta: { P:1, E:1 } },
       { text: "Plan tasks neatly, timeline confirm solid.", delta: { J:1, T:1 } },
@@ -58,15 +58,15 @@ const QUESTIONS = [
     a: [
       { text: "Mingle table to table, selfie with couple.", delta: { E:1 } },
       { text: "Eat quietly; waiting for yam‑seng.", delta: { I:1 } },
-      { text: "Comment portion size & logistics.", delta: { T:1 } },
-      { text: "Feel touched until eyes a bit wet.", delta: { F:1 } },
+      { text: "Comment on portion size & logistics.", delta: { T:1 } },
+      { text: "Feel so touched until eyes a bit wet.", delta: { F:1 } },
     ]
   },
   {
     q: "Escape Room for team‑building. Your vibe:",
     a: [
       { text: "Shiok! I’ll lead the charge.", delta: { E:1, J:1 } },
-      { text: "Okay lor, tell me where to go.", delta: { I:1, S:1 } },
+      { text: "Okay lor, just tell me where to go.", delta: { I:1, S:1 } },
       { text: "Give me the logic puzzles.", delta: { T:1, N:1 } },
       { text: "Here for bonding, not puzzles.", delta: { F:1, P:1 } },
     ]
@@ -117,10 +117,10 @@ const QUESTIONS = [
     ]
   },
   {
-    q: "NS/CIP/school camp activity time:",
+    q: "NS/school camp/group activity time:",
     a: [
       { text: "Volunteer as IC — I organise.", delta: { E:1, J:1 } },
-      { text: "I show up, tell me what to do.", delta: { I:1, S:1 } },
+      { text: "I will show up, just tell me what to do.", delta: { I:1, S:1 } },
       { text: "Can we optimise this process?", delta: { T:1, N:1 } },
       { text: "Let’s make sure everyone included.", delta: { F:1 } },
     ]
@@ -249,12 +249,9 @@ function showResult(){
   resultCard.innerHTML = `
     <div class="rc-head">
       <div class="rc-type">${type}</div>
-      <div class="rc-badge">Singapore MBTI</div>
-    </div>
     <div class="rc-title">${data.title} <span class="rc-emoji">${data.emoji}</span></div>
     <div class="rc-desc">${data.blurb}</div>
     <div class="rc-tags">${data.tags.map(t=>`<span class="tag">#${t}</span>`).join("")}</div>
-    <div class="brand">singapore‑mbti.fun — Share on IG/TikTok/WhatsApp</div>
   `;
   startScreen.classList.remove("show");
   quizScreen.classList.remove("show");
@@ -272,21 +269,6 @@ function downloadResult(){
   });
 }
 
-function share(){
-  const type = computeType(score);
-  const data = TYPES[type];
-  const text = `I got ${type} – ${data.title} ${data.emoji} on the Singapore MBTI Quiz! Try it:`;
-  const url = window.location.href;
-  if (navigator.share){
-    navigator.share({title:"Singapore MBTI Quiz", text, url}).catch(()=>{});
-  }else{
-    // fallback: copy text to clipboard
-    navigator.clipboard.writeText(`${text} ${url}`).then(()=>{
-      alert("Share text copied! Paste into WhatsApp/Telegram/FB/IG.");
-    });
-  }
-}
-
 $("#btn-start").addEventListener("click", ()=>{
   startScreen.classList.remove("show");
   resultScreen.classList.remove("show");
@@ -301,6 +283,6 @@ $("#btn-again").addEventListener("click", ()=>{
 });
 
 $("#btn-download").addEventListener("click", downloadResult);
-$("#btn-share").addEventListener("click", share);
+
 
 // Initial state stays on start screen
